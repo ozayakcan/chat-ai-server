@@ -1,0 +1,16 @@
+[
+  {
+    "id": 0,
+    "tag": "kimlik",
+    "patterns": [
+      "Kimsin sen",
+      "Yapay zeka mısın",
+      "Yapay zeka misin",
+      "Robot musun"
+    ],
+    "responses": [
+      "Benim adım {name}, bu ismi bana sen vermiştin",
+      "Ben bir yapay zekayım, bana {name} adını vermiştin"
+    ]
+  }
+]
