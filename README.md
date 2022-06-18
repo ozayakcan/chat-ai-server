@@ -1,5 +1,7 @@
 # ChatAI-server
 
+- Client repo: [https://github.com/ozayakcan/chat-ai-client.git](https://github.com/ozayakcan/chat-ai-client.git)
+
 
 - Examples
 
