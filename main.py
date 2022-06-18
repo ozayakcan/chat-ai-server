@@ -1,10 +1,9 @@
-from config.stats import Stats
-from flask import Flask
-from flask import request
+from config.ai import AIConfig
+from flask import Flask, request
 from gevent.pywsgi import WSGIServer
 import json
 import random
-app = Flask(Stats.app_name)
+app = Flask(AIConfig.app_name)
 
 en = json.load(open('locales/en.json'))
 tr = json.load(open('locales/tr.json'))
@@ -23,9 +22,9 @@ def get_data(data, arg):
 
 @app.route("/")
 def home():
-  return "Status:" + "Active" if Stats.active == True else "Not Active"
+  return "AI Active"
 
-@app.route("/talk", methods=['POST'])
+@app.route(AIConfig.conversation_path, methods=['POST'])
 def talk():
   data = request.json
   lang = get_data(data, "lang")
@@ -42,6 +41,6 @@ def talk():
       response["id"] = langJ["id"]
       break
   return str(response)
-http_server = WSGIServer(('0.0.0.0', Stats.port), app)
+http_server = WSGIServer(('0.0.0.0', AIConfig.port), app)
 http_server.serve_forever()
-#app.run(host="0.0.0.0", port=Stats.port)
+#app.run(host="0.0.0.0", port=AIConfig.port)
