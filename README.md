@@ -10,5 +10,5 @@ Post
 
 Response
 ```
-{'id': responseiid , 'message': 'response message'}
+{'id': response id , 'message': 'response message'}
 ```
