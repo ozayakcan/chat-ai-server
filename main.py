@@ -35,12 +35,19 @@ def talk():
     "id": -1,
     "message": ""
   }
+  find_response = False
   for langJ in langJson:
     if get_data(data, "message") in langJ["patterns"]:
       response["message"] = replaceStrings(data, random.choice(langJ["responses"]))
       response["id"] = langJ["id"]
+      find_response = True
       break
-  return str(response)
+  if find_response:
+    return str(response)
+  else:
+    response["message"] = replaceStrings(data, random.choice(langJson[0]["responses"]))
+    response["id"] = langJson[0]["id"]
+    return str(response)
 http_server = WSGIServer(('0.0.0.0', AIConfig.port), app)
 http_server.serve_forever()
 #app.run(host="0.0.0.0", port=AIConfig.port)

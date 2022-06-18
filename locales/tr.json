@@ -1,6 +1,13 @@
 [
   {
     "id": 0,
+    "patterns": [],
+    "responses": [
+      "Üzgünüm bunu daha öğrenmedim."
+    ]
+  },
+  {
+    "id": 0,
     "tag": "kimlik",
     "patterns": [
       "Kimsin sen",

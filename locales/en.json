@@ -1,7 +1,13 @@
 [
   {
-   "id": 0,
-    "tag": "identity",
+    "id": 0,
+    "patterns": [],
+    "responses": [
+      "Sorry I haven't learned that yet."
+    ]
+  },
+  {
+    "id": 1,
     "patterns": [
       "Who are you",
       "Are you an ai",
