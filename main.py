@@ -1,6 +1,7 @@
 from config.stats import Stats
 from flask import Flask
 from flask import request
+from gevent.pywsgi import WSGIServer
 import json
 import random
 app = Flask(Stats.app_name)
@@ -41,4 +42,6 @@ def talk():
       response["id"] = langJ["id"]
       break
   return str(response)
-app.run(host="0.0.0.0", port=Stats.port)
+http_server = WSGIServer(('0.0.0.0', Stats.port), app)
+http_server.serve_forever()
+#app.run(host="0.0.0.0", port=Stats.port)
