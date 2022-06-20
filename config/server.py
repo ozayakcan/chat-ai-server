@@ -1,8 +1,8 @@
 from config.ai import AIConfig
 from config.strings import HandleStrings
 from flask import Flask, request
-from locales.locale import locale
 import random
+import json
 
 app = Flask(AIConfig.app_name)
 
@@ -13,6 +13,10 @@ def home():
 
 @app.route(AIConfig.conversation_path, methods=['POST'])
 def talk():
+  locale = {
+    "en":json.load(open('locales/en.json')),
+    "tr":json.load(open('locales/tr.json'))
+  }
   data = request.json
   lang = HandleStrings.get_data(data, "lang", "en")
   response = {
