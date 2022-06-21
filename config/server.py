@@ -12,12 +12,20 @@ app = Flask(AIConfig.app_name)
 def home():
   return "AI Active"
 
+locale = {
+  "en":json.load(open('locales/en/messages.json')),
+  "tr":json.load(open('locales/tr/messages.json'))
+}
+train_files = {
+  "en":"locales/en/train.json",
+  "tr":"locales/tr/train.json"
+}
+train = {
+  "en":json.load(open(train_files["en"])),
+  "tr":json.load(open(train_files["tr"]))
+}
 @app.route(AIConfig.conversation_path, methods=['POST'])
 def talk():
-  locale = {
-    "en":json.load(open('locales/en.json')),
-    "tr":json.load(open('locales/tr.json'))
-  }
   data = request.json
   lang = HandleStrings.get_data(data, "lang", "en")
   response = {
@@ -25,15 +33,16 @@ def talk():
     "message": ""
   }
   response_found = False
+  message = HandleStrings.get_data(data, "message", "message")
   if lang in locale:
     for langJ in locale[lang]:
-      matches = difflib.get_close_matches(HandleStrings.get_data(data, "message", "message"), langJ["patterns"])
+      matches = difflib.get_close_matches(message, langJ["patterns"])
       if len(matches) > 0:
         response["message"] = HandleStrings.replaceStrings(data, random.choice(langJ["responses"]))
         response["id"] = langJ["id"]
         response_found = True
         break
-#      if HandleStrings.get_data(data, "message", "message") in langJ["patterns"]:
+#      if message in langJ["patterns"]:
 #        response["message"] = HandleStrings.replaceStrings(data, random.choice(langJ["responses"]))
 #        response["id"] = langJ["id"]
 #        response_found = True
@@ -44,4 +53,10 @@ def talk():
   else:
     response["message"] = HandleStrings.replaceStrings(data, random.choice(locale[lang][0]["responses"]))
     response["id"] = locale[lang][0]["id"]
+    train_matches = difflib.get_close_matches(message, train[lang])
+    if len(train_matches) == 0:
+      global train
+      train.append(message)
+      with open(train_files[lang], "w") as f:
+        json.dump(train, f)
     return str(response)
