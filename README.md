@@ -2,6 +2,18 @@
 
 - Client repo: [https://github.com/ozayakcan/chat-ai-client](https://github.com/ozayakcan/chat-ai-client)
 
+Usage on replit:
+
+Install tensorflow-cpu manually
+```
+pip install tensorflow-cpu
+```
+
+Add this lines in .replit file.
+```
+[packager]
+ignoredPackages=["tensorflow"]
+```
 
 - Examples
 
