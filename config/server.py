@@ -53,10 +53,8 @@ def talk():
   else:
     response["message"] = HandleStrings.replaceStrings(data, random.choice(locale[lang][0]["responses"]))
     response["id"] = locale[lang][0]["id"]
-    train_matches = difflib.get_close_matches(message, train[lang])
-    if len(train_matches) == 0:
-      global train
-      train.append(message)
+    if not message in train[lang]:
+      train[lang].append(message)
       with open(train_files[lang], "w") as f:
-        json.dump(train, f)
+        json.dump(train[lang], f)
     return str(response)
