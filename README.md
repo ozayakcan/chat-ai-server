@@ -1,23 +1,10 @@
-# chat-ai-server
+# Server
 
-- Client repo: [https://github.com/ozayakcan/chat-ai-client](https://github.com/ozayakcan/chat-ai-client)
+- Client: [https://github.com/ozayakcan/chat-ai-client](https://github.com/ozayakcan/chat-ai-client)
 
-Usage on replit:
+# Usage
 
-Install tensorflow-cpu manually
-```
-pip install tensorflow-cpu
-```
-
-Add this lines in .replit file.
-```
-[packager]
-ignoredPackages=["tensorflow"]
-```
-
-- Examples
-
-request urls:
+- Request Url Examples:
 ```
 111.111.111.111/talk
 111.111.111.111:8080/talk
@@ -25,12 +12,12 @@ example.com:8080/talk
 example.com/talk
 ```
 
-Post
+- Post
 ```
 {"lang":"en", "message":"Message", "name":"AI Name"}
 ```
 
-Response
+- Response
 ```
 {'id': response id , 'message': 'response message'}
 ```
