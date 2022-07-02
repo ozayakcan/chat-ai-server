@@ -28,33 +28,25 @@ train = {
 def talk():
   data = request.form
   localeLocal = HandleStrings.get_data(data, "locale", "en")
-  response = {
-    "id": -1,
-    "message": ""
-  }
+  response = '{"id": $id,"message": "$message"}'
   response_found = False
   message = HandleStrings.get_data(data, "message", "message")
   if localeLocal in locale:
     for localeJ in locale[localeLocal]:
       matches = difflib.get_close_matches(message, localeJ["patterns"])
       if len(matches) > 0:
-        response["message"] = HandleStrings.replaceStrings(data, random.choice(localeJ["responses"]))
-        response["id"] = localeJ["id"]
+        response = response.replace("$id", str(localeJ["id"]))
+        response = response.replace("$message", HandleStrings.replaceStrings(data, random.choice(localeJ["responses"])))
         response_found = True
         break
-#      if message in localeJ["patterns"]:
-#        response["message"] = HandleStrings.replaceStrings(data, random.choice(localeJ["responses"]))
-#        response["id"] = localeJ["id"]
-#        response_found = True
-#        break
         
   if response_found:
-    return str(response)
+    return response
   else:
-    response["message"] = HandleStrings.replaceStrings(data, random.choice(locale[localeLocal][0]["responses"]))
-    response["id"] = locale[localeLocal][0]["id"]
+    response = response.replace("$id", str(locale[localeLocal][0]["id"]))
+    response = response.replace("$message", HandleStrings.replaceStrings(data, random.choice(locale[localeLocal][0]["responses"])))
     if not message in train[localeLocal]:
       train[localeLocal].append(message)
       with open(train_files[localeLocal], "w") as f:
         json.dump(train[localeLocal], f)
-    return str(response)
+    return response
