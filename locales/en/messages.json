@@ -14,8 +14,8 @@
       "Are you a robot"
     ],
     "responses": [
-      "I am {name}, you gave me this name. Remember?",
-      "I am an artificial intelligence, you named me {name}. Remember?"
+      "I am {aiName}, you gave me this name. Remember?",
+      "I am an artificial intelligence, you named me {aiName}. Remember?"
     ]
   }
 ]

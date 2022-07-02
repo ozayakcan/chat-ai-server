@@ -12,9 +12,11 @@ example.com:8080/talk
 example.com/talk
 ```
 
-- Post
+- Post Variables
 ```
-{"lang":"en", "message":"Message", "name":"AI Name"}
+locale = (en or tr)
+message = (your message)
+aiName = (AI's name)
 ```
 
 - Response

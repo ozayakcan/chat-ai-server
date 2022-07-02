@@ -26,35 +26,35 @@ train = {
 }
 @app.route(AIConfig.conversation_path, methods=['POST'])
 def talk():
-  data = request.json
-  lang = HandleStrings.get_data(data, "lang", "en")
+  data = request.form
+  localeLocal = HandleStrings.get_data(data, "locale", "en")
   response = {
     "id": -1,
     "message": ""
   }
   response_found = False
   message = HandleStrings.get_data(data, "message", "message")
-  if lang in locale:
-    for langJ in locale[lang]:
-      matches = difflib.get_close_matches(message, langJ["patterns"])
+  if localeLocal in locale:
+    for localeJ in locale[localeLocal]:
+      matches = difflib.get_close_matches(message, localeJ["patterns"])
       if len(matches) > 0:
-        response["message"] = HandleStrings.replaceStrings(data, random.choice(langJ["responses"]))
-        response["id"] = langJ["id"]
+        response["message"] = HandleStrings.replaceStrings(data, random.choice(localeJ["responses"]))
+        response["id"] = localeJ["id"]
         response_found = True
         break
-#      if message in langJ["patterns"]:
-#        response["message"] = HandleStrings.replaceStrings(data, random.choice(langJ["responses"]))
-#        response["id"] = langJ["id"]
+#      if message in localeJ["patterns"]:
+#        response["message"] = HandleStrings.replaceStrings(data, random.choice(localeJ["responses"]))
+#        response["id"] = localeJ["id"]
 #        response_found = True
 #        break
         
   if response_found:
     return str(response)
   else:
-    response["message"] = HandleStrings.replaceStrings(data, random.choice(locale[lang][0]["responses"]))
-    response["id"] = locale[lang][0]["id"]
-    if not message in train[lang]:
-      train[lang].append(message)
-      with open(train_files[lang], "w") as f:
-        json.dump(train[lang], f)
+    response["message"] = HandleStrings.replaceStrings(data, random.choice(locale[localeLocal][0]["responses"]))
+    response["id"] = locale[localeLocal][0]["id"]
+    if not message in train[localeLocal]:
+      train[localeLocal].append(message)
+      with open(train_files[localeLocal], "w") as f:
+        json.dump(train[localeLocal], f)
     return str(response)

@@ -15,8 +15,8 @@
       "Robot musun"
     ],
     "responses": [
-      "Benim adım {name}, bu ismi bana sen vermiştin",
-      "Ben bir yapay zekayım, bana {name} adını vermiştin"
+      "Benim adım {aiName}, bu ismi bana sen vermiştin",
+      "Ben bir yapay zekayım, bana {aiName} adını vermiştin"
     ]
   }
 ]
