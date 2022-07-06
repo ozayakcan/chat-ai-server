@@ -11,6 +11,18 @@ git update-index --assume-unchanged locales/en/train.json
 git update-index --assume-unchanged locales/tr/train.json
 ```
 
+# Replit
+If you want to deploy server on Replit. Fork this repl: [https://replit.com/@ozayakcan/chat-ai-server](https://replit.com/@ozayakcan/chat-ai-server)
+
+And go to [https://uptimerobot.com/](https://uptimerobot.com/), create an account and add your replit site for monitoring.
+
+- Example Site:
+```
+https://your-repl.username.repl.co
+```
+[https://chat-ai-server.ozayakcan.repl.co](https://chat-ai-server.ozayakcan.repl.co)
+
+
 # Usage
 
 - Request Url Examples:
