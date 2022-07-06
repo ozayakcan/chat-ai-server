@@ -12,7 +12,7 @@ git update-index --assume-unchanged locales/tr/train.json
 ```
 
 # Replit
-If you want to deploy server on Replit. Fork this repl: [https://replit.com/@ozayakcan/chat-ai-server](https://replit.com/@ozayakcan/chat-ai-server)
+If you want to deploy server on Replit. Fork this repl: [https://replit.com/@ozayakcan/chat-ai-server](https://replit.com/@ozayakcan/chat-ai-server) and run
 
 And go to [https://uptimerobot.com/](https://uptimerobot.com/), create an account and add your replit site for monitoring.
 
