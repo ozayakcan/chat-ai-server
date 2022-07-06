@@ -21,5 +21,5 @@ aiName = (AI's name)
 
 - Response
 ```
-{'id': response id , 'message': 'response message'}
+{'id': response id(int) , 'message': 'response message'(String)}
 ```
