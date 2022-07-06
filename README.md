@@ -2,6 +2,15 @@
 
 - Client: [https://github.com/ozayakcan/chat-ai-client](https://github.com/ozayakcan/chat-ai-client)
 
+# Git
+If you are using Git for version control, use this commands.
+```
+git update-index --assume-unchanged locales/en/train.json
+```
+```
+git update-index --assume-unchanged locales/tr/train.json
+```
+
 # Usage
 
 - Request Url Examples:
