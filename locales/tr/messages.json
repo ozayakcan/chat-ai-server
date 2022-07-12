@@ -18,5 +18,19 @@
       "Benim adım {aiName}, bu ismi bana sen vermiştin",
       "Ben bir yapay zekayım, bana {aiName} adını vermiştin"
     ]
+  },
+  {
+    "id": 2,
+    "patterns": [
+      "Merhaba",
+      "Selam",
+      "Slm",
+      "Hey",
+      "Selamın Aleyküm"
+    ],
+    "responses": [
+      "Merhaba",
+      "Selam"
+    ]
   }
 ]

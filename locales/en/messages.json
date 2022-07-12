@@ -17,5 +17,26 @@
       "I am {aiName}, you gave me this name. Remember?",
       "I am an artificial intelligence, you named me {aiName}. Remember?"
     ]
+  },
+  {
+    "id": 2,
+    "patterns": [
+      "Hi there",
+      "How are you",
+      "Is anyone there?",
+      "Hey",
+      "Hola",
+      "Hallo",
+      "Hello",
+      "Good day",
+      "What's Up?"
+    ],
+    "responses": [
+      "Hello",
+      "Hi there",
+      "Hello!",
+      "Hey!",
+      "Hi!"
+    ]
   }
 ]
