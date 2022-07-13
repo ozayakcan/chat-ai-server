@@ -3,7 +3,9 @@
     "id": 0,
     "patterns": [],
     "responses": [
-      "Üzgünüm bunu daha öğrenmedim. Ama yakında öğrenirim 😊"
+      {
+        "response":"Üzgünüm bunu daha öğrenmedim. Ama yakında öğrenirim 😊"
+      }
     ]
   },
   {
@@ -15,8 +17,12 @@
       "Robot musun"
     ],
     "responses": [
-      "Benim adım {aiName}, bu ismi bana sen vermiştin 😉",
-      "Ben bir yapay zekayım, bana {aiName} adını vermiştin 🥰"
+      {
+        "response":"Benim adım {aiName}, bu ismi bana sen vermiştin 😉"
+      },
+      {
+        "response":"Ben bir yapay zekayım, bana {aiName} adını vermiştin 🥰"
+      }
     ]
   },
   {
@@ -29,9 +35,15 @@
       "Selamın Aleyküm"
     ],
     "responses": [
-      "Merhaba",
-      "Selam 😇",
-      "Hey 👋"
+      {
+        "response":"Merhaba"
+      },
+      {
+        "response":"Selam 😇"
+      },
+      {
+        "response":"Hey 👋"
+      }
     ]
   }
 ]

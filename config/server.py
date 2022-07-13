@@ -28,26 +28,42 @@ train = {
 def talk():
   data = request.form
   localeLocal = HandleStrings.get_data(data, "locale", "en")
-  responseJson = '{"id": $id,"message": "$message"}'
+  responseArray = '{"id": $id,"message": "$message", "type": "$type","url": "$url"}'
   response_found = False
   message = HandleStrings.get_data(data, "message", "message")
   if localeLocal in locale:
     for localeJ in locale[localeLocal]:
       matches = difflib.get_close_matches(message, localeJ["patterns"])
       if len(matches) > 0:
-        responseJson = responseJson.replace("$id", str(localeJ["id"]))
-        responseJson = responseJson.replace("$message", HandleStrings.replaceStrings(data, random.choice(localeJ["responses"])))
+        responseArray = getResponse(data, localeJ, responseArray)
         response_found = True
         break
   
   if not response_found:
-    responseJson = responseJson.replace("$id", str(locale[localeLocal][0]["id"]))
-    responseJson = responseJson.replace("$message", HandleStrings.replaceStrings(data, random.choice(locale[localeLocal][0]["responses"])))
+    responseArray = getResponse(data, locale[localeLocal][0], responseArray)
     if not message in train[localeLocal]:
       train[localeLocal].append(message)
       with open(train_files[localeLocal], "w") as f:
         json.dump(train[localeLocal], f)
-  response = make_response(responseJson)
+  response = make_response(responseArray)
   response.headers.set('Access-Control-Allow-Origin','*')
   response.headers.set('Content-type', 'application/json;charset=utf-8')
   return response
+
+def getResponse(data, jsonArray, responseArray):
+  responseArray = responseArray.replace("$id", str(jsonArray["id"]))
+  choice = random.choice(jsonArray["responses"])
+  responseArray = responseArray.replace("$message", HandleStrings.replaceStrings(data, choice["response"]))
+  if "type" in jsonArray:
+    type = jsonArray["type"]
+    responseArray = responseArray.replace("$type", type)
+    if "url" in jsonArray:
+      url = jsonArray["url"]
+      responseArray = responseArray.replace("$url", url)
+    else:
+      responseArray = responseArray.replace("$url", "none")
+  else:
+    responseArray = responseArray.replace("$type", "text")
+    responseArray = responseArray.replace("$url", "none")
+  return responseArray
+  

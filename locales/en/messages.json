@@ -3,7 +3,9 @@
     "id": 0,
     "patterns": [],
     "responses": [
-      "Sorry I haven't learned that yet. Bu I will learn soon 😊"
+      {
+        "response":"Sorry I haven't learned that yet. Bu I will learn soon 😊"
+      }
     ]
   },
   {
@@ -14,8 +16,12 @@
       "Are you a robot"
     ],
     "responses": [
-      "I am {aiName}, you gave me this name. Remember? 😉",
-      "I am an artificial intelligence, you named me {aiName}. Remember? 🥰"
+      {
+        "response":"I am {aiName}, you gave me this name. Remember? 😉"
+      },
+      {
+        "response":"I am an artificial intelligence, you named me {aiName}. Remember? 🥰"
+      }
     ]
   },
   {
@@ -32,10 +38,18 @@
       "What's Up?"
     ],
     "responses": [
-      "Hello",
-      "Hi there 🖐",
-      "Hey 👋",
-      "Hi 😇"
+      {
+        "response":"Hello"
+      },
+      {
+        "response":"Hi there 🖐"
+      },
+      {
+        "response":"Hey 👋"
+      },
+      {
+        "response":"Hi 😇"
+      }
     ]
   }
 ]
