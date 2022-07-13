@@ -15,8 +15,8 @@
       "Robot musun"
     ],
     "responses": [
-      "Benim adım {aiName}, bu ismi bana sen vermiştin",
-      "Ben bir yapay zekayım, bana {aiName} adını vermiştin"
+      "Benim adım {aiName}, bu ismi bana sen vermiştin 😉",
+      "Ben bir yapay zekayım, bana {aiName} adını vermiştin 🥰"
     ]
   },
   {
@@ -30,7 +30,8 @@
     ],
     "responses": [
       "Merhaba",
-      "Selam"
+      "Selam 😇",
+      "Hey 👋"
     ]
   }
 ]

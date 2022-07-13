@@ -14,8 +14,8 @@
       "Are you a robot"
     ],
     "responses": [
-      "I am {aiName}, you gave me this name. Remember?",
-      "I am an artificial intelligence, you named me {aiName}. Remember?"
+      "I am {aiName}, you gave me this name. Remember? 😉",
+      "I am an artificial intelligence, you named me {aiName}. Remember? 🥰"
     ]
   },
   {
@@ -33,10 +33,9 @@
     ],
     "responses": [
       "Hello",
-      "Hi there",
-      "Hello!",
-      "Hey!",
-      "Hi!"
+      "Hi there 🖐",
+      "Hey 👋",
+      "Hi 😇"
     ]
   }
 ]
