@@ -28,7 +28,7 @@ train = {
 def talk():
   data = request.form
   localeLocal = HandleStrings.get_data(data, "locale", "en")
-  responseArray = '{"id": $id,"message": "$message", "type": "$type","url": "$url"}'
+  responseArray = '{"id": $id,"message": "$message", "image": "$image"}'
   response_found = False
   message = HandleStrings.get_data(data, "message", "message")
   if localeLocal in locale:
@@ -54,16 +54,10 @@ def getResponse(data, jsonArray, responseArray):
   responseArray = responseArray.replace("$id", str(jsonArray["id"]))
   choice = random.choice(jsonArray["responses"])
   responseArray = responseArray.replace("$message", HandleStrings.replaceStrings(data, choice["response"]))
-  if "type" in jsonArray:
-    type = jsonArray["type"]
-    responseArray = responseArray.replace("$type", type)
-    if "url" in jsonArray:
-      url = jsonArray["url"]
-      responseArray = responseArray.replace("$url", url)
-    else:
-      responseArray = responseArray.replace("$url", "none")
+  if "image" in jsonArray:
+    image = jsonArray["image"]
+    responseArray = responseArray.replace("$image", image)
   else:
-    responseArray = responseArray.replace("$type", "text")
-    responseArray = responseArray.replace("$url", "none")
+    responseArray = responseArray.replace("$image", "none")
   return responseArray
   
